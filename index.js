@@ -35,8 +35,7 @@ app.get("/contact" ,(req,res) => {
 app.get("/prodi" ,(req,res) => {
     //res.send("contact us");
     //res.sendFile(__dirname + "/contact.html");
-    res.render('prodi', {title: 'halaman prodi', prodi});
-     const berita= [
+     const prodi= [
         {
             nama: "sistem informasi",
             fakultas : "FIKR",
@@ -68,6 +67,7 @@ app.get("/prodi" ,(req,res) => {
             singkatan : "AK"
         },
     ];
+    res.render('prodi', {title: 'halaman prodi', prodi});
 });
 
 app.get("/mahasiswa", (req,res)=>{

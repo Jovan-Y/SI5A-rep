@@ -4,15 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
+    <style>
+    table, th, td {
+    border:1px solid black;
+    }
+    </style>
 </head>
 <body>
-    <h1> prodi</h1>
-    <p>ini halaman prodi, menampilkan daftar prodi di mdp</p>
-    
+    <h1>Prodi</h1>
+    <p>Ini halaman prodi, menampilkan daftar prodi di MDP</p>
+    <table>
+        <tr>
+            <th>Nama Prodi</th>
+            <th>Fakultas</th>
+            <th>Singkatan</th>
+        </tr>
+        <% prodi.forEach(data => { %>
+            <tr>
+                <td><%= data.nama %></td>
+                <td><%= data.fakultas %></td>
+                <td><%= data.singkatan %></td>
+            </tr>
+        <% }) %>
+    </table>
     <ul>
-        <li><a href="/">home</a></li>
-        <li><a href="/about">about</a></li>
-        <li><a href="/contact">contact</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
     </ul>
 </body>
+
 </html>
