@@ -2,10 +2,13 @@ const express = require("express")
 const app = express()
 const port = 3000
 
+app.set('view engine', 'ejs');
+
 //route
 app.get("/" ,(req,res) => {
     //res.send("hello");
     res.sendFile(__dirname + "/home.html");
+    res.render('index');
 });
 //route
 app.get("/about" ,(req,res) => {
