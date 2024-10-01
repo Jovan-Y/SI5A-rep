@@ -22,10 +22,9 @@ app.get("/" ,(req,res) => {
             isi : "isi berita 2"
         },
     ];
-    res.render('index', {title: 'halaman home',berita});
+    res.render('index', {title: 'halaman home',berita, layout: 'main'});
 });
 //route
-
 app.get("/about" ,(req,res) => {
     //res.send("about");
     //res.sendFile(__dirname + "/aboutus.html");
@@ -35,7 +34,7 @@ app.get("/about" ,(req,res) => {
 app.get("/contact" ,(req,res) => {
     //res.send("contact us");
     //res.sendFile(__dirname + "/contact.html");
-    res.render('contact', {title: 'halaman contact'});
+    res.render('contact', {title: 'halaman contact', layout: 'main'});
 });
 app.get("/prodi" ,(req,res) => {
     //res.send("contact us");
@@ -72,7 +71,7 @@ app.get("/prodi" ,(req,res) => {
             singkatan : "AK"
         },
     ];
-    res.render('prodi', {title: 'halaman prodi', prodi});
+    res.render('prodi', {title: 'halaman prodi', prodi, layout: 'main'});
 });
 
 app.get("/mahasiswa", (req,res)=>{
