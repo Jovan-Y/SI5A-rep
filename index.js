@@ -1,8 +1,12 @@
 const express = require("express")
 const app = express()
+const expressLayout = require ("express-ejs-layouts");
 const port = 3002
 
+app.set("views",__dirname + "/views");
 app.set('view engine', 'ejs');
+
+app.use(expressLayout);
 
 //route
 app.get("/" ,(req,res) => {
@@ -21,10 +25,11 @@ app.get("/" ,(req,res) => {
     res.render('index', {title: 'halaman home',berita});
 });
 //route
+
 app.get("/about" ,(req,res) => {
     //res.send("about");
     //res.sendFile(__dirname + "/aboutus.html");
-    res.render('aboutus', {title: 'halaman about us'});
+    res.render('aboutus', {title: 'halaman about us', layout: 'main' });
 });
 // route kontak
 app.get("/contact" ,(req,res) => {
