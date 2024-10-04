@@ -7,6 +7,9 @@ const expressLayout = require("express-ejs-layouts");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var aboutRouter = require('./routes/aboutus');
+var prodiRouter = require('./routes/prodi');
+var contactRouter = require('./routes/contact');
 
 var app = express();
 
@@ -23,6 +26,9 @@ app.use(expressLayout);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/aboutus', usersRouter);
+app.use('/prodi', usersRouter);
+app.use('/contact', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
