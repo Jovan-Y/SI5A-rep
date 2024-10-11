@@ -5,16 +5,17 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const expressLayout = require("express-ejs-layouts");
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var aboutRouter = require('./routes/aboutus');
-var prodiRouter = require('./routes/prodi');
-var contactRouter = require('./routes/contact');
+var indexRouter = require('./app_server/routes/');
+var indexRouter = require('./app_server/routes/index');
+var usersRouter = require('./app_server/routes/users');
+var aboutRouter = require('./app_server/routes/aboutus');
+var prodiRouter = require('./app_server/routes/prodi');
+var contactRouter = require('./app_server/routes/contact');
 
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname,'app_server', 'views'));
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
@@ -26,9 +27,9 @@ app.use(expressLayout);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/aboutus', usersRouter);
-app.use('/prodi', usersRouter);
-app.use('/contact', usersRouter);
+app.use('/aboutus', aboutRouter);
+app.use('/prodi', prodiRouter);
+app.use('/contact', contactRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

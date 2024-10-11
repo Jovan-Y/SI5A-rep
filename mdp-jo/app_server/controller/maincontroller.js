@@ -1,11 +1,24 @@
-var express = require('express');
-var router = express.Router();
-
-/* GET home page. */
-router.get('/prodi', function(req, res, next) {
-   //res.send("contact us");
-    //res.sendFile(__dirname + "/contact.html");
-     const prodi= [
+const index = (req, res)=>{
+    const berita= [
+        {
+            judul: "berita 1",
+            isi : "isi berita 1"
+        },
+        {
+            judul: "berita 2",
+            isi : "isi berita 2"
+        },
+    ];
+    res.render('index', {title: 'halaman home',berita, layout: 'main'});
+}
+const contact = (req, res)=>{
+   res.render('contact', {title: 'halaman contact',layout: 'main'});
+}
+const about = (req, res)=>{
+    res.render('aboutus', {title: 'halaman about',layout: 'main'});
+ }
+const prodi = (req, res)=>{
+    const prodi= [
         {
             nama: "sistem informasi",
             fakultas : "FIKR",
@@ -38,6 +51,6 @@ router.get('/prodi', function(req, res, next) {
         },
     ];
     res.render('prodi', {title: 'halaman prodi', prodi, layout: 'main'});
-});
-
-module.exports = router;
+ }
+ 
+module.exports = {index, contact, about, prodi};
