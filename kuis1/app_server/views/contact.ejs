@@ -1,18 +1,93 @@
-   <h1> contact us</h1>
-    <p>ini halaman contact us</p>
-    <div class="row">
-        <div class="col-sm-6">
-<h2>Gmail</h2>
-<div class=fieldss style="border: solid  black 2px; width: 700px;">jovan</div>
-<h2>nama</h2>
-<div class=fieldss style="border: solid  black 2px; width: 700px;">jovan</div>
-<h2>whatsapp</h2>
-<div class=fieldss style="border: solid  black 2px; width: 700px;">jovan</div>
-<h2>tempat</h2>
-<div class=fieldss style="border: solid  black 2px; width: 700px;">jovan</div>
-<h2></h2>
-<div class=fieldss style="border: solid  black 2px; width: 700px;">jovan</div>
-</div>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Aplikasi Pemesanan Layanan Fotografi</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .hero {
+            background-image: url('https://example.com/your-hero-image.jpg'); /* Ganti dengan URL gambar Anda */
+            background-size: cover;
+            background-position: center;
+            height: 30vh;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .registration-form {
+            margin-top: -20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .service-image {
+            width: 100%;
+            height: auto;
+            max-height: 300px; /* Atur tinggi maksimal */
+            object-fit: cover; /* Mengatur gambar agar proporsional */
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
 
-<img src="../img/wildwest.jpg" width="100%" height="200px">
-</div>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3">
+                <div class="registration-form">
+                    <h2 class="text-center">Daftar Sekarang</h2>
+                    <p class="text-center">Silakan isi form di bawah ini untuk mendaftar layanan fotografi kami.</p>
+                    <form id="registrationForm">
+                        <div class="form-group">
+                            <label for="name">Nama:</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan nama Anda" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan email Anda" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Pilih Layanan:</label>
+                            <select class="form-control" id="service" name="service" required>
+                                <option value="Fotografi Pernikahan">Fotografi Pernikahan</option>
+                                <option value="Fotografi Acara">Fotografi Acara</option>
+                                <option value="Fotografi Potret">Fotografi Potret</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Tanggal:</label>
+                            <input type="date" class="form-control" id="date" name="date" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Daftar</button>
+                    </form>
+                </div>
+                <img src="../img/1.jpg" class="service-image" alt="Ilustrasi Fotografi">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Mencegah form dari pengiriman default
+
+            const registrationData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                service: document.getElementById('service').value,
+                date: document.getElementById('date').value,
+            };
+
+            // Menyimpan data di localStorage
+            localStorage.setItem('registrationData', JSON.stringify(registrationData));
+            alert('Data pendaftaran telah disimpan!');
+            // Arahkan ke halaman konfirmasi atau halaman lain
+            window.location.href = '/confirm';
+        });
+    </script>
+</body>
+</html>
